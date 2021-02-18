@@ -1,6 +1,17 @@
+const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
+    output: {
+        path: path.join(__dirname, '../../dist'),
+        filename: '[name].[fullhash].js'
+    },
+    resolve: {
+        extensions: ['.js', 'jsx'],
+        alias: {
+          '@': path.join(__dirname, '../../src')
+        }
+    },
     module: {
         rules: [
             {

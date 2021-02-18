@@ -3,29 +3,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 const commonConfig = require('./webpack.commom')
-const packageJSON = require('../package.json')
+const packageJSON = require('../../package.json')
 
 const devConfig = {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        port: 8081,
+        port: 8080,
+        contentBase: './public',
+        writeToDisk: true,
         historyApiFallback: {
             index: 'index.html'
         }
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'marketing',
-            filename: 'remoteEntry.js',
-            exposes: {
-              './MarketingApp': './src/bootstrap'
+            name: 'container',
+            remotes: {
+                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
             },
             shared: packageJSON.dependencies
           }),
         new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
+            template: './config/html/template.dev.html',
+            favicon: './config/html/favicon.ico'        })
     ]
 }
 
