@@ -4,7 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     output: {
         path: path.join(__dirname, '../../dist'),
-        filename: '[name].[fullhash].js'
+        filename: '[name].[fullhash].js',
+        publicPath: '/marketing/latest/'
     },
     resolve: {
         extensions: ['.js', 'jsx'],
