@@ -8,12 +8,12 @@ const packageJSON = require('../../package.json')
 const prodConfig = {
     mode: 'production',
     devtool: 'source-map',
-    externals: {
-        react: 'React',
-        axios: 'axios',
-        'react-dom': 'ReactDOM',
-        'react-router-dom': 'ReactRouterDOM'
-    },
+    // externals: {
+    //     react: 'React',
+    //     axios: 'axios',
+    //     'react-dom': 'ReactDOM',
+    //     'react-router-dom': 'ReactRouterDOM'
+    // },
     plugins: [
         new ModuleFederationPlugin({
             name: 'marketing',
