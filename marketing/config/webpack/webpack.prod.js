@@ -8,6 +8,9 @@ const packageJSON = require('../../package.json')
 const prodConfig = {
     mode: 'production',
     devtool: 'source-map',
+    output: {
+        publicPath: '/marketing/latest/'
+    },
     externals: {
         react: 'React',
         axios: 'axios',

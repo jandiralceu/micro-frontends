@@ -5,7 +5,6 @@ module.exports = {
     output: {
         path: path.join(__dirname, '../../dist'),
         filename: '[name].[fullhash].js',
-        publicPath: '/marketing/latest/'
     },
     resolve: {
         extensions: ['.js', 'jsx'],

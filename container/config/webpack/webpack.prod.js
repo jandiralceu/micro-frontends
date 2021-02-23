@@ -14,6 +14,9 @@ const prodConfig = {
         'react-dom': 'ReactDOM',
         'react-router-dom': 'ReactRouterDOM'
     },
+    output: {
+        publicPath: '/container/latest/'
+    },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
